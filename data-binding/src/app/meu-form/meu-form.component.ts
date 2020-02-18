@@ -11,6 +11,7 @@ export class MeuFormComponent implements OnInit {
     nome: 'André Nascimento',
     idade: 20
   }
+  nome:string = 'abc';
   constructor() { }
 
   ngOnInit(): void {
