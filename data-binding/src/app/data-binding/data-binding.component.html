@@ -1,0 +1,15 @@
+<section>
+  <article>
+    <h3>Interpolacao</h3>
+    <p>Exemplo de interpolacao : {{ url }}</p>
+    <p>Resultado de  1 + 1 = {{ 1 + 1 }}</p>
+    <p>Resultado de um método 1 + 2: {{getValor()}}</p>
+    <p>Expressoes boleana:  {{curso || getCurtirCurso()}}</p>
+  </article>
+
+  <article>
+    <h3>Property Binding</h3>
+    <img src="{{urlImagem}}">
+    <img [src]="urlImagem">
+  </article>
+</section>
