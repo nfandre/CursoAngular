@@ -1,0 +1,28 @@
+
+<section>
+  <article>
+    <h3>Two-way  data binding</h3>
+    <div>
+      <input type="text"
+             [value]="nome"
+             (input)="nome = $event.target.value"
+      />
+      <input type="text"
+             [ngModel]="nome"
+             (ngModelChange)="nome = $event"
+      />
+      <input type="text" [(ngModel)]="nome"/>
+
+      <input type="text" bindon-ngModel="nome"/>
+      <p>Voce digitou: {{nome}}</p>
+      <br>
+      <input type="text" [(ngModel)]="pessoa.nome">
+      <input type="text" [(ngModel)]="pessoa.idade">
+      <p>Nome: {{pessoa.nome}}</p>
+      <p>Idade: {{pessoa.idade}}</p>
+
+    </div>
+  </article>
+
+</section>
+
