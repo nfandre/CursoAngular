@@ -1,7 +1,9 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Titulo</div>
+  <div class="panel-heading">
+    <ng-content select=".titulo"></ng-content>
+  </div>
   <div class="panel-body">
-    Panel content
+    <ng-content select=".conteudo"></ng-content>
   </div>
 </div>
 

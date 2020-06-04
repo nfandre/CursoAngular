@@ -113,6 +113,30 @@ componentes também são diretivas em um template
             </ul>
 
 	- ngContent:
+        - Modelo do componente:  <app-exemplo-ng-content>
+        
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <ng-content select=".titulo"></ng-content>
+                  </div>
+                  <div class="panel-body">
+                    <ng-content select=".conteudo"></ng-content>
+                  </div>
+                </div>  
+            
+       - Componente sendo utilizado:
+       
+                <app-exemplo-ng-content>
+                  <div class="titulo">
+                    Titulo
+                  </div>
+                  <div class="conteudo">
+                    Conteúdo a ser exibido.
+                  </div>
+                  <div class="conteudo">
+                    Conteúdo a ser exibido. 2
+                  </div>
+                </app-exemplo-ng-content> 
 
 - Diretivas de Atributos - Interagem com o elemento em que foram aplicadas (não modificam a estrutura do DOM)
 	- ng-class:
