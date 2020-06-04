@@ -92,10 +92,48 @@ Evita propriedade nula de um objeto, faz verificação de um objeto de uma manei
 É uma maneira de passar instruções para o template html
 componentes também são diretivas em um template
 
-- Diretivas estruturais - Interagem com a view e modificam a estrutura do DOM e/ou código HTML
-	- ngFor, ngFor, ngSwitch, ng if, ngContent
+- Diretivas estruturais - Interagem com a view e modificam a estrutura do DOM e/ou código HTML:
+    - ngIf:    
+
+          <div *ngIf="mostrarCurso">
+              não existem cursos
+          </div>
+                  
+    - ngSwitch:
+    
+            <div class="content" [ngSwitch]="aba">
+              <p *ngSwitchCase="'mapa'"> modo mapa ativado</p>
+              <p *ngSwitchCase="'lista'"> modo lista ativado</p>
+              <p *ngSwitchDefault> modo home ativado</p>
+            </div>
+	- ngFor:
+	        
+            <ul>
+              <li *ngFor="let curso of cursos, let i = index"> {{i}} {{curso}}</li>
+            </ul>
+
+	- ngContent:
 
 - Diretivas de Atributos - Interagem com o elemento em que foram aplicadas (não modificam a estrutura do DOM)
-	- ng-class, ng-style
+	- ng-class:
+	
+          <i class="glyphicon"
+             [ngClass]="{
+              'glyphicon-star': meuFavorito,
+              'glyphicon-star-empty': !meuFavorito
+             }"
+             (click)="OnClick()">
+          </i>
+          
+	- ng-style
+	
+            <button
+              [ngStyle]="{
+                'background': ativo ? 'blue' : 'gray',
+                'color': ativo ? 'white' : 'black',
+                'fotWeight': ativo ? 'bold' : 'normal',
+                'fontSize': tamanhoFonte + 'px'
+              }">
+            </button>
 	
 
