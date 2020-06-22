@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ExemplosPipesComponent implements OnInit {
 
   livro: any = {
-    titulo: 'Learning Data dfasdfsdfdsfasfdasfd',
+    titulo: 'andre nascimento de freitas souza santos',
     rating: 4.2323232,
     paginas: 314,
     preco: 14.873,

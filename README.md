@@ -216,7 +216,7 @@ componentes também são diretivas em um template
 Serviço é responsavel por buscar e enviar dados para o servidor. Além disso, o serviço também é responsável por fornece a lógica do negócio(Manipulação dos dados) para os componentes, criando classes de serviços diminuem a repetição de código.
 
 
-###Pipes
+### Pipes
 Transforma um valor de uma template.
 
     <h5> Exemplos pipes</h5>
@@ -230,4 +230,18 @@ Transforma um valor de uma template.
     <br>
     <p> Livro {{livro  | json}}</p>
 
-dfsa
+Criando um pipe customizado para transformar texto em camelCase:
+    
+    export class CamelCasePipe implements PipeTransform {  
+      transform(value: any, ...args: unknown[]): unknown {
+        let values  = value.split(' ');
+        console.log(values)
+        let result = values.map( word => this.convert(word)).reduce((atual, next) => `${atual} ${next}`);
+        return result;
+    
+      }
+      convert(value: string) {
+          return value.substr(0,1).toUpperCase() +
+            value.substr(1).toLocaleLowerCase();
+      }    
+    }
