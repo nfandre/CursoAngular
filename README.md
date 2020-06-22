@@ -159,5 +159,32 @@ componentes também são diretivas em um template
                 'fontSize': tamanhoFonte + 'px'
               }">
             </button>
-	
-
+	- Diretiva de atributo customizada:
+	    - ElementRef: Faz referência ao elemento do DOM
+	    - Renderer: Renderizador, responsável por fazer manipulação no elemento DOM
+            
+                export class FundoAmareloDirective {
+                      constructor( private elementRef: ElementRef , private  rendere: Renderer2) {
+                        // console.log(this.elementRef);
+                        // this.elementRef.nativeElement.style.backgroundColor = 'yellow';
+                        this.rendere.setStyle(this.elementRef.nativeElement, 'background-color:', 'yellow');
+                    
+                      }   
+                }
+        
+            Exemplo: Mudando background com diretiva customizada 
+            
+                    <p appFundoAmarelo>texto com fundo amarelo!</p>
+                    
+                    <button appFundoAmarelo> Fundo amarelo</button>
+                
+        - HostListener: Escuta evento do hospedeiro diretiva customizada
+        - HostBinding: permite fazer a associação(binding) de um atributo/classe de uma diretiva para o elemento html
+        
+              @HostListener('mouseenter') onMouseOuver() {
+                this.backgroundColor = 'yellow';
+              }
+              @HostListener('mouseleave') onMouseLeave() {
+                this.backgroundColor = 'white';
+              }
+              @HostBinding('style.background-color') backgroundColor: string;
