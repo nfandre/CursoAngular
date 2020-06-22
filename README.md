@@ -188,3 +188,26 @@ componentes também são diretivas em um template
                 this.backgroundColor = 'white';
               }
               @HostBinding('style.background-color') backgroundColor: string;
+        
+    - Diretiva de atributo customizada ng else:
+    
+    Diretiva:
+    
+        export class NgElseDirective {
+          @Input() set appNgElse(condition: boolean) {
+            if(!condition){
+              this.viewContainerRef.createEmbeddedView(this.templaterRef);
+            }else{
+              this.viewContainerRef.clear();
+            }
+          }
+          constructor(
+            private templaterRef: TemplateRef<any>,
+            private viewContainerRef: ViewContainerRef
+          ) { }  
+        }
+    utilização:
+    
+        <div *appNgElse="mostrarCurso">
+          lista de cursos
+        </div>
