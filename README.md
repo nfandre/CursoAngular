@@ -214,7 +214,20 @@ componentes também são diretivas em um template
 
 ### Services
 Serviço é responsavel por buscar e enviar dados para o servidor. Além disso, o serviço também é responsável por fornece a lógica do negócio(Manipulação dos dados) para os componentes, criando classes de serviços diminuem a repetição de código.
-- Criando um serviço manualmente:
-    
+
 
 ###Pipes
+Transforma um valor de uma template.
+
+    <h5> Exemplos pipes</h5>
+    <p>Título: {{livro.titulo | uppercase | lowercase}}</p>
+    <p>Estrela: {{livro.rating  | number:'2.1-2'}}</p>
+    <p>Páginas: {{livro.paginas | number}}</p>
+    <p>Preço: {{livro.preco | currency: 'BRL': true}}</p>
+    <p>Data: {{livro.data | date: 'dd-MMM-yyyy'}}</p>
+    <p>URL: {{livro.url}}</p>
+    
+    <br>
+    <p> Livro {{livro  | json}}</p>
+
+dfsa
