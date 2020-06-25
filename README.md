@@ -311,4 +311,8 @@ Criando um pipe customizado para transformar texto em camelCase:
               }
             });
             }
-- Pipe Async
+- Pipe Async - serve para fazer saída de um template mesmo que esse valor demore para ser retornado
+
+      valorAsync = new Promise((resolve, reject) => {
+        setTimeout(() => resolve('Valor assíncrono'), 2000);
+      });
