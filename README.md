@@ -268,3 +268,47 @@ Criando um pipe customizado para transformar texto em camelCase:
          }
        ],
 
+- Criando um Pipe Puro: pipe puro não olha as modificações do valor que é passado como parametro para o método de transform (não se usa pipe em filtro de array - exemplo didático)
+
+        <ul>
+          <li *ngFor="let liv of livros | filtroPipe: filtro"> {{liv}}</li>
+        </ul>
+        
+        export class FiltroPipePipe implements PipeTransform {
+        
+          transform(value: any, args?: any): any {
+            if ( value.length === 0 || args === undefined) {
+              return value;
+            }
+            let filter = args.toLocaleLowerCase();
+            return  value.filter( v => v.toLocaleLowerCase().indexOf(filter) !== -1);
+          }
+        
+        }
+
+- Criando um Pipe impuro: aceita as modificões em tempo real (não é usado para fazer orderBY ou filtro nos arrays)
+
+        @Pipe({
+          name: 'filtroArrayImpuro',
+          pure: false
+        })
+
+    - Maneira correta de fazer filtro no array
+    
+            <ul>
+              <li *ngFor="let liv of obterLivros()"> {{liv}}</li>
+            </ul>
+            
+            obterLivros() {
+            if (this.livros.length === 0 || this.filtro === undefined || this.filtro.trim() === 'null') {
+              return this.livros;
+            }
+            return this.livros.filter(v => {
+              if (v.toLocaleLowerCase().indexOf(this.filtro.toLocaleLowerCase()) !== -1) {
+                return true;
+              } else {
+                return false;
+              }
+            });
+            }
+- Pipe Async

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-exemplos-pipes',
@@ -12,13 +12,33 @@ export class ExemplosPipesComponent implements OnInit {
     rating: 4.2323232,
     paginas: 314,
     preco: 14.873,
-    data: new Date(2016,9, 22),
+    data: new Date(2016, 9, 22),
     url: 'httpdfsaf/sdfsadf.com'
   };
+  livros: string[] = ['matematica', 'historia', 'geografia'];
+  filtro: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  addLivro(valor: string) {
+    this.livros.push(valor);
+  }
+
+  obterLivros() {
+    if (this.livros.length === 0 || this.filtro === undefined || this.filtro.trim() === 'null') {
+      return this.livros;
+    }
+    return this.livros.filter(v => {
+      if (v.toLocaleLowerCase().indexOf(this.filtro.toLocaleLowerCase()) !== -1) {
+        return true;
+      } else {
+        return false;
+      }
+    });
   }
 
 }
