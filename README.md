@@ -245,3 +245,26 @@ Criando um pipe customizado para transformar texto em camelCase:
             value.substr(1).toLocaleLowerCase();
       }    
     }
+- Locale - Internacionalização nos pipes
+
+      providers: [
+        {
+          provide: LOCALE_ID,
+          useValue: 'pt-BR'
+          // useClass: '',
+          // useFactory
+        }
+      ],
+
+- Locale - Utilizando um serviço:
+      
+       providers: [
+     
+         SettingsService,
+         {
+           provide: LOCALE_ID,
+           deps: [SettingsService],
+           useFactory: settingsService => settingsService.getLocale()
+         }
+       ],
+
