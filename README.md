@@ -316,3 +316,6 @@ Criando um pipe customizado para transformar texto em camelCase:
       valorAsync = new Promise((resolve, reject) => {
         setTimeout(() => resolve('Valor assíncrono'), 2000);
       });
+
+### Rotas
+Angular ler os parâmentros da rota e carrega a página daquela página
