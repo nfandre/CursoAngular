@@ -24,13 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "../node_modules/materialize-css/dist/css/materialize.css"
+              "src/styles.css"
             ],
             "scripts": [
-              "../node_modules/jquery/dist/jquery.js",
-              "../node_modules/hammerjs/hammer.js",
-              "../node_modules/materialize-css/dist/js/materialize.js"
             ]
           },
           "configurations": {
@@ -93,9 +89,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "../node_modules/materialize-css/dist/css/materialize.css"
             ],
-            "scripts": []
+            "scripts": [
+              "../node_modules/jquery/dist/jquery.js",
+              "../node_modules/hammerjs/hammer.js",
+              "../node_modules/materialize-css/dist/js/materialize.js"
+            ]
           }
         },
         "lint": {
