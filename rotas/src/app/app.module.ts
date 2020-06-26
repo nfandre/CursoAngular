@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { LoginComponent } from './login/login.component';
 import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
+import {CursosServiceService} from './cursos/cursos-service.service';
+import { CursoNaoEncotradoComponent } from './curso-nao-encotrado/curso-nao-encotrado.component';
 
 
 
@@ -17,13 +19,14 @@ import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
     HomeComponent,
     CursosComponent,
     LoginComponent,
-    CursoDetalheComponent
+    CursoDetalheComponent,
+    CursoNaoEncotradoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CursosServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -378,3 +378,7 @@ Passando parâmetros para as rotas:
       }
     
     }
+Redirecionando rotas via código:
+
+        private route: Router
+                this.route.navigate(['/naoencontrado']);
