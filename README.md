@@ -319,3 +319,62 @@ Criando um pipe customizado para transformar texto em camelCase:
 
 ### Rotas
 Angular ler os parâmentros da rota e carrega a página daquela página
+
+O angular cli cria um arquivo para configuração das rotas:
+
+    const routes: Routes = [
+      { path: 'cursos', component: CursosComponent},
+      { path: 'login', component: LoginComponent},
+      { path: '', component: HomeComponent}
+    ];
+    
+    @NgModule({
+      imports: [RouterModule.forRoot(routes)],
+      exports: [RouterModule]
+    })
+    export class AppRoutingModule { }
+
+A diretiva routerLink chama a rota desejada na template: 
+
+    <nav>
+      <div class="nav-wrapper">
+        <a routerLink="" class="brand-logo right">Rotas ng2</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a routerLink="/login">Login</a></li>
+          <li><a routerLink="/cursos">Cursos</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+Para aplicar CSS em rotas ativas pelo routerlink se utiliza a diretiva:
+
+      <li routerLinkActive="active">  <a routerLink="/cursos">Cursos</a></li>
+
+Parâmentros para as rotas: 
+
+    const routes: Routes = [
+      { path: 'curso/:id', component: CursoDetalheComponent},
+    ];
+    
+Passando parâmetros para as rotas:
+
+    <li routerLinkActive="active">  <a [routerLink]="['curso', idcurso.value] ">Cursos com id</a></li>
+    
+    export class CursoDetalheComponent implements OnInit, OnDestroy {
+    
+      id: string;
+      inscricao: Subscription;
+      constructor(private router: ActivatedRoute) {
+        // this.id = this.router.snapshot.params['id'];
+      }
+    
+      ngOnInit(): void {
+        this.inscricao = this.router.params.subscribe( (parametros: any) => {
+          this.id = parametros['id'];
+        });
+      }
+      ngOnDestroy() {
+        this.inscricao.unsubscribe();
+      }
+    
+    }
