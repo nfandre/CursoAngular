@@ -380,5 +380,16 @@ Passando parâmetros para as rotas:
     }
 Redirecionando rotas via código:
 
-        private route: Router
-                this.route.navigate(['/naoencontrado']);
+    private route: Router
+            this.route.navigate(['/naoencontrado']);
+
+Parâmetros para url(queryParams)
+
+    <li routerLinkActive="active">  <a routerLink="/cursos" [queryParams]="{pagina:1}">Cursos</a></li>
+    ngOnInit(): void {
+    this.cursos = this.cursosService.getCursos();
+    this.inscricao = this.route.queryParams.subscribe( queryParams => {
+      this.pagina = queryParams['pagina'];
+    });
+    }
+
