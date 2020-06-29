@@ -393,3 +393,14 @@ Parâmetros para url(queryParams)
     });
     }
 
+Rotas filhas: 
+
+    const alunosRoutes: Routes = [
+      {
+        path: 'alunos', component: AlunosComponent, children: [
+          {path: 'novo', component: AlunoFornComponent},
+          {path: ':id', component: AlunoDetalheComponent},
+          {path: ':id/editar', component: AlunoFornComponent}
+        ]
+      },
+    ];
