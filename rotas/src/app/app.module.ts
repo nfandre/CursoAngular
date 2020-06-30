@@ -6,9 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import {CursosServiceService} from './cursos/cursos-service.service';
-import {CursosModule} from './cursos/curso.module';
-import {AlunosModule} from './alunos/alunos.module';
 
 
 
@@ -20,11 +17,9 @@ import {AlunosModule} from './alunos/alunos.module';
   ],
   imports: [
     BrowserModule,
-    CursosModule,
-    AlunosModule,
     AppRoutingModule
   ],
-  providers: [CursosServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

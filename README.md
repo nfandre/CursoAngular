@@ -404,3 +404,27 @@ Rotas filhas:
         ]
       },
     ];
+Carregar rotas sob demanda:  Carregamento sob demanda (lazy loading) - Melhora a perfomance e aumenta a segurança, são três etapas:
+
+ - 1: Dentro de app.routing.module, colocar o caminho com o loadchildren mais caminho completo do arquivo do módulo + #nomemodulo:
+ 
+        const routes: Routes = [
+          {path: 'cursos', loadChildren: 'app/cursos/cursos.module#CursosModule'},
+          { path: 'login', component: LoginComponent},
+          { path: '', component: HomeComponent}
+        ];
+        
+          {path: 'cursos', loadChildren: () => import('./cursos/curso.module').then(m => m.CursosModule)},
+          {path: 'alunos', loadChildren: () => import('./alunos/alunos.module').then(m => m.AlunosModule)},
+        
+- 2: remover imports do módulo de rota do app.module (não pode ter em nenhum outro lugar da aplicação)
+- 3: rota principal do módulo importado será vazio
+
+        const cursosRoutes: Routes = [
+          { path: '', component: CursosComponent}, <-------
+          { path: 'curso/:id', component: CursoDetalheComponent},
+          { path: 'naoencontrado', component: CursoNaoEncotradoComponent}
+        ];
+        
+     
+
