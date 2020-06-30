@@ -6,18 +6,21 @@ import {CommonModule} from '@angular/common';
 import { AlunoFornComponent } from './aluno-forn/aluno-forn.component';
 import { AlunoDetalheComponent } from './aluno-detalhe/aluno-detalhe.component';
 import {AlunosRoutingModule} from './alunos.routing.module';
+import {AlunosService} from './alunos.service';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
- imports: [
-   CommonModule,
-   AlunosRoutingModule
- ],
+  imports: [
+    CommonModule,
+    AlunosRoutingModule,
+    FormsModule
+  ],
  exports: [],
  declarations: [
    AlunosComponent,
    AlunoFornComponent,
    AlunoDetalheComponent
  ],
- providers: [],
+ providers: [ AlunosService],
 })
 export class AlunosModule { }
