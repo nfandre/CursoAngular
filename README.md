@@ -426,7 +426,7 @@ Carregar rotas sob demanda:  Carregamento sob demanda (lazy loading) - Melhora a
           { path: 'naoencontrado', component: CursoNaoEncotradoComponent}
         ];
         
-Guarda de rotas: CanActive - é um tipo de serviço que implementa um determinado método, e esse método pode ser usado como guarda de rota
+Guarda de rotas: CanActive - é um tipo de serviço que implementa um determinado método(CanActive), e esse método pode ser usado como guarda de rota
 - Cria a classe que implementa a interface CanActivate
   
         export class AuthGuard implements CanActivate {
@@ -455,3 +455,19 @@ Guarda de rotas: CanActive - é um tipo de serviço que implementa um determinad
           }
         ]
     
+- CanActiveChild - Verifica as rotas filhas
+
+        import {ActivatedRouteSnapshot, CanActivateChild, RouterStateSnapshot} from '@angular/router';
+        import {Injectable} from '@angular/core';
+        import {Observable} from 'rxjs';
+        @Injectable()
+        export class AlunoGuard implements CanActivateChild {
+          constructor() {
+          }
+        
+          canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean>|Promise<boolean>|boolean {
+            return true;
+          }
+        }
+
+

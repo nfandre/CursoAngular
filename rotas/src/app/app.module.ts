@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import {AuthService} from './login/auth.service';
 import {FormsModule} from '@angular/forms';
 import {AuthGuard} from './guards/auth-guard';
+import {CursoGuard} from './guards/curso.guard';
+import {AlunoGuard} from './guards/aluno.guard';
 
 
 
@@ -23,7 +25,12 @@ import {AuthGuard} from './guards/auth-guard';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [
+    AuthService,
+    AuthGuard,
+    CursoGuard,
+    AlunoGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
