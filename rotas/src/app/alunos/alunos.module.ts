@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 
 
 import {AlunosComponent} from './alunos.component';
 import {CommonModule} from '@angular/common';
-import { AlunoFornComponent } from './aluno-forn/aluno-forn.component';
-import { AlunoDetalheComponent } from './aluno-detalhe/aluno-detalhe.component';
+import {AlunoFornComponent} from './aluno-forn/aluno-forn.component';
+import {AlunoDetalheComponent} from './aluno-detalhe/aluno-detalhe.component';
 import {AlunosRoutingModule} from './alunos.routing.module';
 import {AlunosService} from './alunos.service';
 import {FormsModule} from '@angular/forms';
+import {AlunoDeactivateGuard} from '../guards/aluno-deactivate.guard';
 
 @NgModule({
   imports: [
@@ -15,12 +16,16 @@ import {FormsModule} from '@angular/forms';
     AlunosRoutingModule,
     FormsModule
   ],
- exports: [],
- declarations: [
-   AlunosComponent,
-   AlunoFornComponent,
-   AlunoDetalheComponent
- ],
- providers: [ AlunosService],
+  exports: [],
+  declarations: [
+    AlunosComponent,
+    AlunoFornComponent,
+    AlunoDetalheComponent
+  ],
+  providers: [
+    AlunosService,
+    AlunoDeactivateGuard
+  ],
 })
-export class AlunosModule { }
+export class AlunosModule {
+}

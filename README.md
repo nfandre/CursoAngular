@@ -426,7 +426,8 @@ Carregar rotas sob demanda:  Carregamento sob demanda (lazy loading) - Melhora a
           { path: 'naoencontrado', component: CursoNaoEncotradoComponent}
         ];
         
-Guarda de rotas: CanActive - é um tipo de serviço que implementa um determinado método(CanActive), e esse método pode ser usado como guarda de rota
+Guarda de rotas: 
+- CanActive - é um tipo de serviço que implementa um determinado método(CanActive), e esse método pode ser usado como guarda de rota
 - Cria a classe que implementa a interface CanActivate
   
         export class AuthGuard implements CanActivate {
@@ -470,4 +471,34 @@ Guarda de rotas: CanActive - é um tipo de serviço que implementa um determinad
           }
         }
 
+- CanDeactivate - verifica se usuário pode desativar uma rota (para um componente específico, única Interface )
+
+        @Injectable()
+        export class AlunoDeactivateGuard implements CanDeactivate<AlunoFornComponent> {
+          canDeactivate(
+            component: AlunoFornComponent,
+            currentRoute: ActivatedRouteSnapshot,
+            currentState: RouterStateSnapshot
+          ): Observable<boolean> | Promise<boolean> | boolean {
+            return component.teste();
+          }
+        }
+
+- CanDeactivate - com interface genérica
+
+        export interface IformCandeactivate {
+          podeDesativar();
+        }
+
+        @Injectable()
+        export class AlunoDeactivateGuard implements CanDeactivate<IformCandeactivate> {
+          canDeactivate(
+            component: IformCandeactivate,
+            currentRoute: ActivatedRouteSnapshot,
+            currentState: RouterStateSnapshot
+          ): Observable<boolean> | Promise<boolean> | boolean {
+            console.log('entrou' + component.podeDesativar())
+            return component.podeDesativar();
+          }
+        }
 
