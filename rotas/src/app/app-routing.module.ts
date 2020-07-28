@@ -6,6 +6,7 @@ import {LoginComponent} from './login/login.component';
 import {AuthGuard} from './guards/auth-guard';
 import {CursoGuard} from './guards/curso.guard';
 import {AlunoGuard} from './guards/aluno.guard';
+import {PaginaNaoEncontradaComponent} from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: '**',
+    component: PaginaNaoEncontradaComponent,
   }
 ];
 

@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import {AuthGuard} from './guards/auth-guard';
 import {CursoGuard} from './guards/curso.guard';
 import {AlunoGuard} from './guards/aluno.guard';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 
 
 
@@ -18,7 +19,8 @@ import {AlunoGuard} from './guards/aluno.guard';
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    PaginaNaoEncontradaComponent
   ],
   imports: [
     BrowserModule,
