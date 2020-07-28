@@ -502,3 +502,33 @@ Guarda de rotas:
           }
         }
 
+- Resolve - carregar informações antes do rota ser carregada
+
+        @Injectable({ providedIn: 'root' })
+        export class AlunoDetalheResolve implements Resolve<Aluno> {
+          constructor(private alunosService: AlunosService) {}
+        
+          resolve(
+            route: ActivatedRouteSnapshot,
+            state: RouterStateSnapshot
+          ): Observable<any>|Promise<any>|any {
+            let id  = route.params['id'];
+        
+            return this.alunosService.getAluno(id);
+          }
+        }
+        
+    - import da guarda de rota:       
+ 
+            {
+                path: ':id', component: AlunoDetalheComponent,
+                    resolve: {aluno: AlunoDetalheResolve}
+            },
+
+    - carregando no componente 
+    
+          ngOnInit(): void {
+            this.inscricao = this.route.data.subscribe((info: {aluno: Aluno}) => {
+              this.aluno = info.aluno;
+            });
+          }
