@@ -1,3 +1,6 @@
+#### Curso: Loiane Groner
+#### Link: http://loiane.training
+
 ### Databinding
 Databinding é uma forma de associar informações do componente na template e virse-versa.
 
