@@ -559,3 +559,18 @@ Guarda de rotas:
           }
         
         }
+### Forms
+Existem dois tipos de formulário no Angular 2, como abaixo:
+- ##### Template Driven
+    - Formulário é criado e configurado no HTML
+    - Validações são feitas no template HTML
+    - Angular cria/ deduz um FormGroup do cod HTML 
+    - Se coloca diretivas no forms/input para o angular poder gerenciar os campos
+    - submit do form é feito no ngSubmit
+- ##### Data Driven (Reativo)
+    - Formulário é criado e configurado no componente
+    - Validações no componente
+    - Angular usa o FormGroup criado no componente
+    - Form já está no componente e não precisa do ngSubmit
+    
+   
