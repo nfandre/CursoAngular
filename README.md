@@ -576,4 +576,7 @@ Existem dois tipos de formulário no Angular 2, como abaixo:
     - Angular usa o FormGroup criado no componente
     - Form já está no componente e não precisa do ngSubmit
     
-   
+- ##### Estados dos Campos do Form - class css
+    - Controle visitado | ng-touched | ng-untouched
+    - Valor mudou       | ng-dirty   | ng-pristine
+    - Controle válido   | ng-valid   | ng-invalid      
