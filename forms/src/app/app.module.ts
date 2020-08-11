@@ -8,6 +8,7 @@ import { DataFormComponent } from './data-form/data-form.component';
 import {FormsModule} from '@angular/forms';
 import { FormDebubComponent } from './form-debub/form-debub.component';
 import { CampoControlErrorComponent } from './campo-control-error/campo-control-error.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CampoControlErrorComponent } from './campo-control-error/campo-control-
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
