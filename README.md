@@ -564,14 +564,14 @@ Guarda de rotas:
         }
 ### Forms
 Existem dois tipos de formulário no Angular 2, como abaixo:
-- ##### Template Driven
+- ##### Template Driven - Orientado a template
     - Formulário é criado e configurado no HTML
     - Validações são feitas no template HTML
     - Angular cria/ deduz um FormGroup do cod HTML 
     - Se coloca diretivas no forms/input para o angular poder gerenciar os campos
     - submit do form é feito no ngSubmit
-- ##### Data Driven (Reativo)
-    - Formulário é criado e configurado no componente
+- ##### Data Driven (Reativo) - Orientado a dados
+    - Formulário é criado e configurado no componente programticamente sincronizando  com DOM/HTML
     - Validações no componente
     - Angular usa o FormGroup criado no componente
     - Form já está no componente e não precisa do ngSubmit
@@ -580,3 +580,15 @@ Existem dois tipos de formulário no Angular 2, como abaixo:
     - Controle visitado | ng-touched | ng-untouched
     - Valor mudou       | ng-dirty   | ng-pristine
     - Controle válido   | ng-valid   | ng-invalid      
+
+- Exemplo recursividade para validar forms:
+
+      verificaValidacao(formGroup: FormGroup) {
+        Object.keys(formGroup.controls).forEach((item, i) => {
+          const controle = formGroup.get(item);
+          controle.markAllAsTouched();
+          if (controle instanceof FormGroup) {
+            this.verificaValidacao(controle);
+          }
+        });
+      }
